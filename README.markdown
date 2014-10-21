@@ -1,4 +1,6 @@
-﻿Extremely easy way to create Pdf files from Asp.net MVC.
+﻿Fork of [original libray][original] 
+
+Extremely easy way to create Pdf files from Asp.net MVC.
 
 Usage:
 ```csharp
@@ -25,3 +27,6 @@ public ActionResult TestViewWithModel(string id)
 Also available a RouteAsPdf, UrlAsPdf and ViewAsPdf ActionResult.
 
 It generates Pdf also from authorized actions (web forms authentication).
+
+
+[origin]:https://github.com/webgio/Rotativa
