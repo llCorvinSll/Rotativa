@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Rotativa.MVC</id>
+    <version>2.0.0</version>
+    <title>Rotativa.MVC</title>
+    <authors>Dmitry Pronin</authors>
+    <owners>Dmitry Pronin</owners>
+    <licenseUrl>http://www.opensource.org/licenses/mit-license.php</licenseUrl>
+    <projectUrl>https://github.com/llCorvinSll/Rotativa</projectUrl>
+    <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Extremely easy way to print Pdf in Aspnet Mvc</description>
+    <releaseNotes>Initial version.</releaseNotes>
+    <copyright>Copyright 2014</copyright>
+    <tags>PDF AspNet Mvc</tags>
+  </metadata>
+</package>

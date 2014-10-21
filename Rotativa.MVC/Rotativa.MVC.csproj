@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Rotativa.MVC</RootNamespace>
-    <AssemblyName>Rotativa</AssemblyName>
+    <AssemblyName>Rotativa.MVC</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -86,12 +86,7 @@
   <ItemGroup>
     <Content Include="App_Browsers\qt.browser" />
     <None Include="packages.config" />
-    <None Include="Rotativa.nuspec">
-      <SubType>Designer</SubType>
-    </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="NuGet.exe" />
+    <None Include="Rotativa.MVC.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Rotativa.Core\Rotativa.Core.csproj">
