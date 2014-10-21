@@ -20,6 +20,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rotativa.Core", "Rotativa.C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Rotativa.MVC", "Rotativa.MVC\Rotativa.MVC.csproj", "{D93FAA11-31F0-4629-B53C-AA8680283529}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{CDB11DF5-CA1E-45A2-AC0C-0BAB1AA58A1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,5 +51,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8EC08BFB-6ABA-4D71-8405-77AFF5859F3D} = {CDB11DF5-CA1E-45A2-AC0C-0BAB1AA58A1E}
+		{DE9EB72A-2AE7-42E8-9A44-AA525B463688} = {CDB11DF5-CA1E-45A2-AC0C-0BAB1AA58A1E}
+		{26A2783C-662D-4885-BD2B-A9AFB55C6BF9} = {CDB11DF5-CA1E-45A2-AC0C-0BAB1AA58A1E}
 	EndGlobalSection
 EndGlobal
