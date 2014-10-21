@@ -99,17 +99,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Rotativa.Core\Rotativa.Core.csproj">
+      <Project>{5fe9d514-3bc4-45a9-bac9-7264f37f8d32}</Project>
+      <Name>Rotativa.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Rotativa.Demo\Rotativa.Demo.csproj">
-      <Project>{8EC08BFB-6ABA-4D71-8405-77AFF5859F3D}</Project>
+      <Project>{8ec08bfb-6aba-4d71-8405-77aff5859f3d}</Project>
       <Name>Rotativa.Demo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rotativa.MVC\Rotativa.MVC.csproj">
+      <Project>{d93faa11-31f0-4629-b53c-aa8680283529}</Project>
+      <Name>Rotativa.MVC</Name>
     </ProjectReference>
     <ProjectReference Include="..\Rotativa.Tests\Rotativa.Tests.csproj">
       <Project>{DE9EB72A-2AE7-42E8-9A44-AA525B463688}</Project>
       <Name>Rotativa.Tests</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Rotativa\Rotativa.csproj">
-      <Project>{D93FAA11-31F0-4629-B53C-AA8680283529}</Project>
-      <Name>Rotativa</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

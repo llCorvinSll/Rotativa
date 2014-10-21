@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using NUnit.Framework;
-using Rotativa.Options;
 using SharpTestsEx;
+using Rotativa.MVC;
+using Rotativa.Core.Options;
 
 namespace Rotativa.UnitTests
 {

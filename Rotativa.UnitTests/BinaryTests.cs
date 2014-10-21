@@ -14,6 +14,7 @@ namespace Rotativa.UnitTests
     using System.Linq;
     using System.Text;
     using MvcContrib.TestHelper.Fakes;
+    using Rotativa.MVC;
 
     /// <summary>
     /// Testing for binary generation

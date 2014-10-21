@@ -226,16 +226,20 @@
     <Content Include="App_Browsers\qt.browser" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Rotativa\Rotativa.csproj">
-      <Project>{D93FAA11-31F0-4629-B53C-AA8680283529}</Project>
-      <Name>Rotativa</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\TestViewWithModel.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\TestPartialViewWithModel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Rotativa.Core\Rotativa.Core.csproj">
+      <Project>{5fe9d514-3bc4-45a9-bac9-7264f37f8d32}</Project>
+      <Name>Rotativa.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Rotativa.MVC\Rotativa.MVC.csproj">
+      <Project>{d93faa11-31f0-4629-b53c-aa8680283529}</Project>
+      <Name>Rotativa.MVC</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

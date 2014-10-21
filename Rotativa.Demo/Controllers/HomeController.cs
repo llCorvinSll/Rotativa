@@ -2,7 +2,8 @@
 using System.IO;
 using System.Web.Mvc;
 using Rotativa.Demo.Models;
-using Rotativa.Options;
+using Rotativa.MVC;
+using Rotativa.Core.Options;
 
 namespace Rotativa.Demo.Controllers
 {
