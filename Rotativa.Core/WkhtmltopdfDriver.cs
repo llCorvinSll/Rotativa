@@ -10,45 +10,44 @@ namespace Rotativa.Core
         /// <summary>
         /// Converts given HTML string to PDF.
         /// </summary>
-        /// <param name="wkhtmltopdfPath">Path to wkthmltopdf.</param>
-        /// <param name="switches">Switches that will be passed to wkhtmltopdf binary.</param>
+        /// <param name="options">Driver options.</param>
         /// <param name="html">String containing HTML code that should be converted to PDF.</param>
         /// <returns>PDF as byte array.</returns>
-        public static byte[] ConvertHtml(string wkhtmltopdfPath, string switches, string html)
+        public static byte[] ConvertHtml(DriverOptions options, string html)
         {
-            return Convert(wkhtmltopdfPath, switches, html);
+            return Convert(options, html);
         }
 
         /// <summary>
         /// Converts given URL to PDF.
         /// </summary>
-        /// <param name="wkhtmltopdfPath">Path to wkthmltopdf.</param>
-        /// <param name="switches">Switches that will be passed to wkhtmltopdf binary.</param>
+        /// <param name="options">Driver options.</param>
         /// <returns>PDF as byte array.</returns>
-        public static byte[] Convert(string wkhtmltopdfPath, string switches)
+        public static byte[] Convert(DriverOptions options)
         {
-            return Convert(wkhtmltopdfPath, switches, null);
+            return Convert(options, null);
         }
 
         /// <summary>
         /// Converts given URL or HTML string to PDF.
         /// </summary>
-        /// <param name="wkhtmltopdfPath">Path to wkthmltopdf.</param>
-        /// <param name="switches">Switches that will be passed to wkhtmltopdf binary.</param>
+        /// <param name="options">Driver options.</param>
         /// <param name="html">String containing HTML code that should be converted to PDF.</param>
         /// <returns>PDF as byte array.</returns>
-        private static byte[] Convert(string wkhtmltopdfPath, string switches, string html)
+        private static byte[] Convert(DriverOptions options, string html)
         {
+            StringBuilder switches = new StringBuilder();
+
             // switches:
             //     "-q"  - silent output, only errors - no progress messages
             //     " -"  - switch output to stdout
             //     "- -" - switch input to stdin and output to stdout
-            switches = "-q " + switches + " -";
+            switches.AppendFormat("-q {0} -", options.ToString());
 
             // generate PDF from given HTML string, not from URL
             if (!string.IsNullOrEmpty(html))
             {
-                switches += " -";
+                switches.Append(" -");
                 html = SpecialCharsEncode(html);
             }
 
@@ -56,13 +55,13 @@ namespace Rotativa.Core
                            {
                                StartInfo = new ProcessStartInfo
                                                {
-                                                   FileName = Path.Combine(wkhtmltopdfPath, "wkhtmltopdf.exe"),
-                                                   Arguments = switches,
+                                                   FileName = Path.Combine(options.WkhtmltopdfPath, "wkhtmltopdf.exe"),
+                                                   Arguments = switches.ToString(),
                                                    UseShellExecute = false,
                                                    RedirectStandardOutput = true,
                                                    RedirectStandardError = true,
                                                    RedirectStandardInput = true,
-                                                   WorkingDirectory = wkhtmltopdfPath,
+                                                   WorkingDirectory = options.WkhtmltopdfPath,
                                                    CreateNoWindow = true
                                                }
                            };

@@ -106,7 +106,7 @@ namespace Rotativa.MVC
                 html.Replace(" href=\"/", string.Format(" href=\"{0}/", baseUrl));
                 html.Replace(" src=\"/", string.Format(" src=\"{0}/", baseUrl));
 
-                var fileContent = WkhtmltopdfDriver.ConvertHtml(RotativaOptions.WkhtmltopdfPath, RotativaOptions.ToString(), html.ToString());
+                var fileContent = WkhtmltopdfDriver.ConvertHtml(RotativaOptions, html.ToString());
                 return fileContent;
             }
         }

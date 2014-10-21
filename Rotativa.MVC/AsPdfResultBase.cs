@@ -2,11 +2,8 @@
 using Rotativa.Core.Options;
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
 using System.Web.Mvc;
@@ -21,14 +18,16 @@ namespace Rotativa.MVC
         {
             RotativaOptions = new DriverOptions
             {
-            WkhtmltopdfPath = string.Empty,
-            FormsAuthenticationCookieName = ".ASPXAUTH",
-            PageMargins = new Margins(),
+                WkhtmltopdfPath = string.Empty,
+                PageMargins = new Margins(),
             };
         }
 
         private const string ContentType = "application/pdf";
 
+        /// <summary>
+        /// Options for called rotativa Driver
+        /// </summary>
         public DriverOptions RotativaOptions { get; set; }
 
         /// <summary>
@@ -36,52 +35,8 @@ namespace Rotativa.MVC
         /// </summary>
         public string FileName { get; set; }
 
-        /// <summary>
-        /// Path to wkhtmltopdf binary.
-        /// </summary>
-        /// public string WkhtmltopdfPath { get; set; }
-
-        /// <summary>
-        /// Sets cookies.
-        /// </summary>
-        [OptionFlag("--cookie")]
-        public Dictionary<string, string> Cookies { get; set; }
-
-
         [Obsolete(@"Use BuildPdf(this.ControllerContext) method instead and use the resulting binary data to do what needed.")]
         public string SaveOnServerPath { get; set; }
-
-        protected abstract string GetUrl(ControllerContext context);
-
-        private string GetWkParams(ControllerContext context)
-        {
-            var switches = string.Empty;
-
-            HttpCookie authenticationCookie = null;
-            if (context.HttpContext.Request.Cookies != null && context.HttpContext.Request.Cookies.AllKeys.Contains(FormsAuthentication.FormsCookieName))
-            {
-                authenticationCookie = context.HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
-            }
-            if (authenticationCookie != null)
-            {
-                var authCookieValue = authenticationCookie.Value;
-                switches += " --cookie " +  RotativaOptions.FormsAuthenticationCookieName + " " + authCookieValue;
-            }
-
-            switches += " " + RotativaOptions.ToString();
-
-            var url = GetUrl(context);
-            switches += " " + url;
-
-            return switches;
-        }
-
-        protected virtual byte[] CallTheDriver(ControllerContext context)
-        {
-            var switches = GetWkParams(context);
-            var fileContent = WkhtmltopdfDriver.Convert(RotativaOptions.WkhtmltopdfPath, switches);
-            return fileContent;
-        }
 
         public byte[] BuildPdf(ControllerContext context)
         {
@@ -109,14 +64,15 @@ namespace Rotativa.MVC
 
             response.OutputStream.Write(fileContent, 0, fileContent.Length);
         }
+        
 
-        private static string SanitizeFileName(string name)
+        protected abstract string GetUrl(ControllerContext context);
+
+        protected virtual byte[] CallTheDriver(ControllerContext context)
         {
-            string invalidChars = Regex.Escape(new string(Path.GetInvalidPathChars()) + new string(Path.GetInvalidFileNameChars()));
-            string invalidCharsPattern = string.Format(@"[{0}]+", invalidChars);
-
-            string result = Regex.Replace(name, invalidCharsPattern, "_");
-            return result;
+            GetWkParams(context);
+            var fileContent = WkhtmltopdfDriver.Convert(RotativaOptions);
+            return fileContent;
         }
 
         protected HttpResponseBase PrepareResponse(HttpResponseBase response)
@@ -130,5 +86,33 @@ namespace Rotativa.MVC
 
             return response;
         }
+
+   
+        #region Private 
+        private void GetWkParams(ControllerContext context)
+        {
+            RotativaOptions.URL = GetUrl(context);
+
+            HttpCookie authenticationCookie = null;
+            if (context.HttpContext.Request.Cookies != null && context.HttpContext.Request.Cookies.AllKeys.Contains(FormsAuthentication.FormsCookieName))
+            {
+                authenticationCookie = context.HttpContext.Request.Cookies[FormsAuthentication.FormsCookieName];
+            }
+            if (authenticationCookie != null)
+            {
+                RotativaOptions.Cookies.Add(authenticationCookie.Name, authenticationCookie.Value);
+            }
+        }
+
+        private static string SanitizeFileName(string name)
+        {
+            string invalidChars = Regex.Escape(new string(Path.GetInvalidPathChars()) + new string(Path.GetInvalidFileNameChars()));
+            string invalidCharsPattern = string.Format(@"[{0}]+", invalidChars);
+
+            string result = Regex.Replace(name, invalidCharsPattern, "_");
+            return result;
+        }
+
+        #endregion
     }
 }

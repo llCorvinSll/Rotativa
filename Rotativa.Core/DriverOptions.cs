@@ -17,24 +17,14 @@ namespace Rotativa.Core
         }
 
         /// <summary>
+        /// External URL if needed
+        /// </summary>
+        public string URL { get; set; }
+
+        /// <summary>
         /// Path to wkhtmltopdf binary.
         /// </summary>
         public string WkhtmltopdfPath { get; set; }
-
-        ///// <summary>
-        ///// Custom name of authentication cookie used by forms authentication.
-        ///// </summary>
-        //[Obsolete("Use FormsAuthenticationCookieName instead of CookieName.")]
-        //public string CookieName
-        //{
-        //    get { return FormsAuthenticationCookieName; }
-        //    set { FormsAuthenticationCookieName = value; }
-        //}
-
-        /// <summary>
-        /// Custom name of authentication cookie used by forms authentication.
-        /// </summary>
-        public string FormsAuthenticationCookieName { get; set; }
 
         /// <summary>
         /// Sets the page margins.
@@ -175,6 +165,8 @@ namespace Rotativa.Core
                     result.AppendFormat(CultureInfo.InvariantCulture, " {0} {1}", of.Name, value);
                 }
             }
+
+            result.AppendFormat(" {0}", this.URL);
 
             return result.ToString().Trim();
         }
