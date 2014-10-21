@@ -13,7 +13,7 @@ namespace Rotativa.UnitTests
     {
         public string GetConvertOptionsValue()
         {
-            return base.GetConvertOptions();
+            return base.RotativaOptions.ToString();
         }
         protected override string GetUrl(System.Web.Mvc.ControllerContext context)
         {
@@ -30,8 +30,8 @@ namespace Rotativa.UnitTests
             var post = new Dictionary<string, string>();
             post.Add("param1", "value1");
             post.Add("param2", "value2");
-            pdfResult.Post = post;
-            pdfResult.PageOrientation = Orientation.Landscape;
+            pdfResult.RotativaOptions.Post = post;
+            pdfResult.RotativaOptions.PageOrientation = Orientation.Landscape;
             var commandlineOptions = pdfResult.GetConvertOptionsValue();
             commandlineOptions.Should().Contain("--post param1 value1 --post param2 value2");
             commandlineOptions.Should().Contain("-O Landscape");

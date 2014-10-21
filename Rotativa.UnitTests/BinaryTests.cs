@@ -30,7 +30,10 @@ namespace Rotativa.UnitTests
             var wkhtmltopdfPath = Path.Combine(solutionDir, "Rotativa.Core", "Rotativa");
             var actionResult = new UrlAsPdf("https://github.com/webgio/Rotativa")
                 {
-                    WkhtmltopdfPath = wkhtmltopdfPath
+                    RotativaOptions = new Core.DriverOptions
+                    {
+                        WkhtmltopdfPath = wkhtmltopdfPath
+                    }
                 }; 
             var builder = new TestControllerBuilder();
             var controller = new HomeController();

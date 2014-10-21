@@ -27,9 +27,9 @@ namespace Rotativa.MVC
 
         public object Model { get; set; }
 
-        public ViewAsPdf()
+        public ViewAsPdf() : base()
         {
-            WkhtmltopdfPath = string.Empty;
+         //   WkhtmltopdfPath = string.Empty;
             MasterName = string.Empty;
             ViewName = string.Empty;
             Model = null;
@@ -106,7 +106,7 @@ namespace Rotativa.MVC
                 html.Replace(" href=\"/", string.Format(" href=\"{0}/", baseUrl));
                 html.Replace(" src=\"/", string.Format(" src=\"{0}/", baseUrl));
 
-                var fileContent = WkhtmltopdfDriver.ConvertHtml(WkhtmltopdfPath, GetConvertOptions(), html.ToString());
+                var fileContent = WkhtmltopdfDriver.ConvertHtml(RotativaOptions.WkhtmltopdfPath, RotativaOptions.ToString(), html.ToString());
                 return fileContent;
             }
         }

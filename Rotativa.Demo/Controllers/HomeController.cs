@@ -26,7 +26,9 @@ namespace Rotativa.Demo.Controllers
 
         public ActionResult Test()
         {
-            return new ActionAsPdf("Index", new { name = "Giorgio" }) { FileName = "Test.pdf" };
+            var res = new ActionAsPdf("Index", new { name = "Giorgio" }) { FileName = "Test.pdf" };
+
+            return res;
         }
 
         public ActionResult TestUrl()
@@ -49,7 +51,10 @@ namespace Rotativa.Demo.Controllers
             return new UrlAsPdf("http://www.github.com")
                        {
                            FileName = "TestExternalUrl.pdf",
-                           PageMargins = new Margins(0, 0, 0, 0)
+                           RotativaOptions = new Core.DriverOptions
+                           {
+                               PageMargins = new Margins(0, 0, 0, 0)
+                           }
                        };
         }
 
@@ -62,13 +67,18 @@ namespace Rotativa.Demo.Controllers
             // Probably the biggest advantage of this approach is that you have Session object available.
 
             ViewBag.Message = string.Format("Hello {0} to ASP.NET MVC!", "Giorgio III.");
-            return new ViewAsPdf("Index")
+            var res = new ViewAsPdf("Index")
             {
                 FileName = "TestView.pdf",
-                PageSize = Size.A3,
-                PageOrientation = Orientation.Landscape,
-                PageMargins = { Left = 0, Right = 0 }
+                RotativaOptions = new Core.DriverOptions
+                {
+                    PageSize = Size.A3,
+                    PageOrientation = Orientation.Landscape,
+                    PageMargins = new Margins { Left = 0, Right = 0 }
+                }
             };
+
+            return res;
         }
 
         public ActionResult TestSaveOnServer(string fileName)
@@ -83,10 +93,13 @@ namespace Rotativa.Demo.Controllers
             return new ViewAsPdf("Index")
             {
                 FileName = fileName,
-                PageSize = Size.A3,
-                PageOrientation = Orientation.Landscape,
-                PageMargins = { Left = 0, Right = 0 },
-                SaveOnServerPath = filePath
+                SaveOnServerPath = filePath,
+                RotativaOptions = new Core.DriverOptions
+                {
+                    PageSize = Size.A3,
+                    PageOrientation = Orientation.Landscape,
+                    PageMargins = new Margins{ Left = 0, Right = 0 },
+                }
             };
         }
 

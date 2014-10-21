@@ -8,9 +8,8 @@ namespace Rotativa.MVC
 {
     public class PartialViewAsPdf : ViewAsPdf
     {
-        public PartialViewAsPdf()
-        {
-        }
+        public PartialViewAsPdf():base()
+        {}
 
         public PartialViewAsPdf(string partialViewName)
             : base(partialViewName)

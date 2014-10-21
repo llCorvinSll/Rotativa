@@ -8,7 +8,7 @@ namespace Rotativa.MVC
     {
         private readonly string _url;
 
-        public UrlAsPdf(string url)
+        public UrlAsPdf(string url):base()
         {
             _url = url ?? string.Empty;
         }

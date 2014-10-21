@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DriverOptions.cs" />
     <Compile Include="Options\Enums.cs" />
     <Compile Include="Options\Margins.cs" />
     <Compile Include="Options\OptionFlag.cs" />
