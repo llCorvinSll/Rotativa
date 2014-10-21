@@ -1,4 +1,4 @@
-﻿Fork of [original libray][original] 
+﻿Fork of [original libray](https://github.com/webgio/Rotativa)
 
 Extremely easy way to create Pdf files from Asp.net MVC.
 
@@ -28,5 +28,3 @@ Also available a RouteAsPdf, UrlAsPdf and ViewAsPdf ActionResult.
 
 It generates Pdf also from authorized actions (web forms authentication).
 
-
-[origin]:https://github.com/webgio/Rotativa

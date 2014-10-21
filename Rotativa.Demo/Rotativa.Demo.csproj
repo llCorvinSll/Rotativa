@@ -158,11 +158,6 @@
     <Content Include="Content\themes\base\tooltip.css" />
     <Content Include="Global.asax" />
     <Content Include="README.jQuery.vsdoc.txt" />
-    <Content Include="Rotativa\libeay32.dll" />
-    <Content Include="Rotativa\libgcc_s_dw2-1.dll" />
-    <Content Include="Rotativa\mingwm10.dll" />
-    <Content Include="Rotativa\README.txt" />
-    <Content Include="Rotativa\ssleay32.dll" />
     <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.5.1.js" />
