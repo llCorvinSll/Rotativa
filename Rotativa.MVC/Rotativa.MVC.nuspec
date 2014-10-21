@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Rotativa.MVC</id>
-    <version>2.0.0</version>
+    <version>2.0.1</version>
     <title>Rotativa.MVC</title>
     <authors>Dmitry Pronin</authors>
     <owners>Dmitry Pronin</owners>
@@ -10,9 +10,19 @@
     <projectUrl>https://github.com/llCorvinSll/Rotativa</projectUrl>
     <!--<iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>-->
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <description>Extremely easy way to print Pdf in Aspnet Mvc</description>
+    <description>
+      Extremely easy way to print Pdf in Aspnet Mvc
+
+      fork of original
+      https://www.nuget.org/packages/Rotativa/
+      or
+      https://github.com/webgio/Rotativa
+    </description>
     <releaseNotes>Initial version.</releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>PDF AspNet Mvc</tags>
+    <dependencies>
+      <dependency id="Rotativa.Core" version="2.0.0" />
+    </dependencies>
   </metadata>
 </package>
