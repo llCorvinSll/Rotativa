@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Rotativa.MVC</id>
-    <version>2.0.1</version>
+    <version>2.0.3</version>
     <title>Rotativa.MVC</title>
     <authors>Dmitry Pronin</authors>
     <owners>Dmitry Pronin</owners>
@@ -18,7 +18,10 @@
       or
       https://github.com/webgio/Rotativa
     </description>
-    <releaseNotes>Initial version.</releaseNotes>
+    <releaseNotes>
+      dependency for backward compatibility.
+      Change AssemblyInfo
+    </releaseNotes>
     <copyright>Copyright 2014</copyright>
     <tags>PDF AspNet Mvc</tags>
     <dependencies>

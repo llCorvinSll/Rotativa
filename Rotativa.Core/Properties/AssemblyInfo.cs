@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rotativa.Driver")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Rotativa.Core")]
+[assembly: AssemblyDescription("Wrapper for wkhtmltopdf")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Rotativa.Driver")]
+[assembly: AssemblyCompany("Pronin Dmitry")]
+[assembly: AssemblyProduct("Rotativa.Core")]
 [assembly: AssemblyCopyright("Copyright ©  2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
