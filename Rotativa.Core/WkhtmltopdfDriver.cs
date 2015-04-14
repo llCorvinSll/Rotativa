@@ -90,7 +90,7 @@ namespace Rotativa.Core
 
             string error = proc.StandardError.ReadToEnd();
 
-            if (ms.Length == 0)
+            if (ms.Length == 0 && !options.MuteErrors)
             {
                 throw new Exception(error);
             }

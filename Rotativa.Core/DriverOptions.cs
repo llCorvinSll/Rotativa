@@ -129,6 +129,12 @@ namespace Rotativa.Core
         [OptionFlag("")]
         public string CustomSwitches { get; set; }
 
+		/// <summary>
+		/// Mute errors from wkhtmltopdf 
+		/// use for your own risk, it kan produce borken pdf if somthing is realy go bad
+		/// </summary>
+		public bool MuteErrors { get; set; }
+
         public override string ToString()
         {
             var result = new StringBuilder();
